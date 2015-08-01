@@ -1,4 +1,7 @@
 <h1>Items</h1>
+
+<h2>Total items: {{model.length}} </h2>
+
 {{#each model as |item|}}
   <h3>{{link-to item.name 'items.show' item}}</h3>
 {{/each}}

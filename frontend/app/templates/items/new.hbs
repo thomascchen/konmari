@@ -1,0 +1,10 @@
+<h1>Add a New Item</h1>
+
+<form {{action "save" model on="submit"}}>
+  <p>
+    <label>Item Name:
+      {{input value=model.name}}
+    </label>
+  </p>
+  <input type="submit" value="Save"/>
+</form>
