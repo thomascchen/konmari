@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 20150801003717) do
 
   create_table "items", force: :cascade do |t|
     t.string   "name",                       null: false
-    t.boolean  "keep",       default: false, null: false
+    t.boolean  "keep",       default: false
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
   end
