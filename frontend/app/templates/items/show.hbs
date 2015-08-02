@@ -3,6 +3,10 @@
 </div>
 
 <div class="row text-center">
-  {{#link-to "items.edit" model.id class="btn btn-primary btn-lg button-show"}}Edit Item{{/link-to}}
-  {{#link-to "items.index" class="btn btn-default btn-lg button-show"}}All Items{{/link-to}}
+  <div class="col-sm-6 col-sm-offset-3">
+    {{#link-to "items.edit" model.id class="btn btn-primary btn-lg button-show"}}Edit Item{{/link-to}}
+    {{#link-to "items.index" class="btn btn-default btn-lg button-show"}}All Items{{/link-to}}
+    <button class="btn btn-danger btn-lg button-show pull-left" {{action "keep" model}}>Keep</button>
+    <button class="btn btn-success btn-lg button-show pull-right" {{action "discard" model}}>Discard</button>
+  </div>
 </div>
