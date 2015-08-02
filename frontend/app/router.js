@@ -7,7 +7,6 @@ var Router = Ember.Router.extend({
 
 Router.map(function() {
   this.route('items', { path: '/' }, function() {
-
     this.route('new');
 
     this.route('show', {
@@ -17,6 +16,9 @@ Router.map(function() {
     this.route('edit', {
       path: ':item_id/edit'
     });
+
+    this.route('keep');
+    this.route('discard');
   });
 });
 
