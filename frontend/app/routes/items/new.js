@@ -10,6 +10,9 @@ export default Ember.Route.extend({
       item.save().then(function(item) {
         _this.transitionTo('items.show', item);
       });
+    },
+    cancel() {
+      this.transitionTo('items');
     }
   }
 });

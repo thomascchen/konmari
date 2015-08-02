@@ -1,1 +1,8 @@
-{{model.name}}
+<div class="row text-center">
+  <h2>{{model.name}}</h2>
+</div>
+
+<div class="row text-center">
+  {{#link-to "items.edit" model.id class="btn btn-default"}}Edit Item{{/link-to}}
+  {{#link-to "items.index" class="btn btn-default"}}All Items{{/link-to}}
+</div>
