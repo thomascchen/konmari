@@ -1,9 +1,13 @@
-<form {{action "save" model on="submit"}}>
-  <p>
-    <label>Item Name:
-      {{input value=model.name}}
-    </label>
-  </p>
-  <input class="btn btn-primary" type="submit" value="Save"/>
-  <button class="btn" {{action "cancel"}}>Cancel</button>
-</form>
+<div class="row text-center">
+  <form {{action "save" model on="submit"}}>
+    <div class="form-group">
+      <label for="modelNameInput">Item Name:
+        <div class="col-xs-12">
+        {{input value=model.name class="form-control input-lg" id="modelNameInput"}}
+        </div>
+      </label>
+    </div>
+    <input class="btn btn-primary btn-lg button-show" type="submit" value="Save"/>
+    <button class="btn btn-default btn-lg button-show" {{action "cancel" model}}>Cancel</button>
+  </form>
+</div>

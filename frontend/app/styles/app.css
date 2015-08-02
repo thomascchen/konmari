@@ -1,0 +1,19 @@
+.heading-application {
+  margin-top: 1%;
+}
+
+.heading-items {
+  margin: 1% 0;
+}
+
+.item-name {
+  font-size: 20pt;
+}
+
+.button-show {
+  margin: 1% 0;
+}
+
+a:hover {
+  text-decoration: none;
+}

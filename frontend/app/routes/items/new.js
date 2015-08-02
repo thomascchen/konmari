@@ -1,7 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
-  model: function(){
+  model(){
     return this.store.createRecord('item');
   },
   actions: {
@@ -11,8 +11,9 @@ export default Ember.Route.extend({
         _this.transitionTo('items.show', item);
       });
     },
-    cancel() {
-      this.transitionTo('items');
+    cancel(item) {
+      item.rollback();
+      this.transitionTo('items.index');
     }
   }
 });
