@@ -1,12 +1,13 @@
-<div class="row text-center heading-items">
-  <h1>{{model.name}}</h1>
-</div>
+<div class="well col-sm-10 col-sm-offset-1 show-well">
+  <div class="row text-center heading-items">
+    <p class="item-name-show">{{model.name}}</p>
+  </div>
 
-<div class="row text-center">
-  <div class="col-sm-6 col-sm-offset-3">
-    {{#link-to "items.edit" model.id class="btn btn-link button-show"}}Edit This Item{{/link-to}}
-    {{#link-to "items.index" class="btn btn-link button-show"}}View All Items{{/link-to}}
-    <button class="btn btn-danger btn-lg button-show pull-left" {{action "keep" model}}>Keep</button>
-    <button class="btn btn-success btn-lg button-show pull-right" {{action "discard" model}}>Discard</button>
+  <div class="row text-center">
+    <div class="col-sm-8 col-sm-offset-2">
+      {{#link-to "items.edit" model.id class="btn btn-default btn-lg button-show"}}Edit Item{{/link-to}}
+      <button class="btn btn-danger btn-lg button-show pull-left" {{action "keep" model}}>Keep</button>
+      <button class="btn btn-success btn-lg button-show pull-right" {{action "discard" model}}>Discard</button>
+    </div>
   </div>
 </div>
