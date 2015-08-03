@@ -17,7 +17,7 @@ rake db:create && db:migrate && db:seed
 ..
 rake run
 ```
-Visit to `localhost:4200` to run the app locally.
+Visit `localhost:4200` to run the app locally.
 
 ## To Dos:
 1. Add images for items. I tried to implement this first with Carrierwave, but ran into some problems getting images to save locally. I then tried plain image url strings, but had trouble getting my images to load properly. I rolled this back for now.
