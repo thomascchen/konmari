@@ -14,8 +14,8 @@ export default Ember.Route.extend({
       if (+item.id < itemsCount) {
         _this.transitionTo('items.show', nextItemId);
       } else {
-        _this.transitionTo('items.index');
-      };
+        _this.transitionTo('items.discard');
+      }
     },
     discard(item) {
       var _this = this;
@@ -26,8 +26,8 @@ export default Ember.Route.extend({
       if (+item.id < itemsCount) {
         _this.transitionTo('items.show', nextItemId);
       } else {
-        _this.transitionTo('items.index');
-      };
+        _this.transitionTo('items.discard');
+      }
     }
   }
 });

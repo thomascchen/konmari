@@ -5,10 +5,5 @@ export default Ember.Route.extend({
     return this.store.filter('item', { keep: false }, function(item) {
       return !item.get('keep');
     });
-  },
-  renderTemplate(controller, model) {
-    this.render('items.index', {
-      model: model
-    });
   }
 });
