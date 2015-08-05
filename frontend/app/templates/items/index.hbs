@@ -1,9 +1,28 @@
-<div class="row text-center heading-items">
-  <h2>Total Items: {{model.length}} </h2>
+<div class="row">
+  <div class="text-center">
+    {{#link-to 'items.new' class="btn btn-primary btn-lg button-show"}}Add New Item{{/link-to}}
+    <button {{action "toggleItemView" "all"}} class="btn btn-default btn-lg button-show">View All Items</button>
+    <button {{action "toggleItemView" "keep"}} class="btn btn-warning btn-lg button-show">View Items to Keep</button>
+    <button {{action "toggleItemView" "discard"}} class="btn btn-success btn-lg button-show">View Items to Discard</button>
+  </div>
 </div>
 
-<div class="row text-center">
-  {{#link-to "items.show" 1 class="btn btn-primary btn-lg button-show"}}Begin{{/link-to}}
-</div>
+{{#if keepItems}}
+  <div class="row text-center heading-items">
+    <h2>Refuse To Give Up {{filteredList.length}} Item(s)</h2>
+  </div>
+{{else if discardItems}}
+  <div class="row text-center heading-items">
+    <h2>Unburden Yourself Of {{filteredList.length}} Item(s):</h2>
+  </div>
+{{else}}
+  <div class="row text-center heading-items">
+    <h2>Total Items: {{filteredList.length}} </h2>
+  </div>
 
-{{items-table model=model}}
+  <div class="row text-center">
+    {{#link-to "items.show" first.id class="btn btn-primary btn-lg button-show"}}Begin{{/link-to}}
+  </div>
+{{/if}}
+
+{{items-table model=filteredList}}

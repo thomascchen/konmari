@@ -5,28 +5,19 @@ export default Ember.Route.extend({
     return this.store.find('item', params.item_id);
   },
   actions: {
-    keep(item) {
+    classifyItem(value, item) {
       var _this = this;
       var nextItemId = +item.id + 1;
       const itemsCount = this.store.peekAll('item').get('length');
-      item.set('keep', true);
+      item.set('keep', value);
       item.save();
       if (+item.id < itemsCount) {
         _this.transitionTo('items.show', nextItemId);
       } else {
-        _this.transitionTo('items.discard');
-      }
-    },
-    discard(item) {
-      var _this = this;
-      var nextItemId = +item.id + 1;
-      const itemsCount = this.store.peekAll('item').get('length');
-      item.set('keep', false);
-      item.save();
-      if (+item.id < itemsCount) {
-        _this.transitionTo('items.show', nextItemId);
-      } else {
-        _this.transitionTo('items.discard');
+        _this.transitionTo('items.index').then(function(items) {
+          var controller = items.controllerFor('items.index');
+          controller.send('toggleItemView', 'discard');
+        });
       }
     }
   }
