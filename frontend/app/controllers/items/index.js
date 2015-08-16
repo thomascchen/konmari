@@ -3,8 +3,8 @@ import Ember from 'ember';
 export default Ember.Controller.extend({
   first: Ember.computed.alias('model.lastObject'),
   filteredList: Ember.computed('model', 'status', function() {
-    var model = this.get('model');
-    var status = this.get('status');
+    const model = this.get('model');
+    const status = this.get('status');
 
     if (status === "keep") {
       return model.filterBy("keep", true);

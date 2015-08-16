@@ -6,8 +6,8 @@ export default Ember.Route.extend({
   },
   actions: {
     classifyItem(value, item) {
-      var _this = this;
-      var nextItemId = +item.id + 1;
+      const _this = this;
+      const nextItemId = +item.id + 1;
       const itemsCount = this.store.peekAll('item').get('length');
       item.set('keep', value);
       item.save();
@@ -15,7 +15,7 @@ export default Ember.Route.extend({
         _this.transitionTo('items.show', nextItemId);
       } else {
         _this.transitionTo('items.index').then(function(items) {
-          var controller = items.controllerFor('items.index');
+          const controller = items.controllerFor('items.index');
           controller.send('toggleItemView', 'discard');
         });
       }
