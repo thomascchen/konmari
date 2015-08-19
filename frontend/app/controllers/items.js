@@ -2,20 +2,19 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
   actions: {
-    viewAllItems() {
+    viewItems(status) {
       const controller = this.controllerFor('items.index');
-      this.transitionToRoute('items.index');
-      controller.send('toggleItemView', 'all');
-    },
-    viewKeepItems() {
-      const controller = this.controllerFor('items.index');
-      this.transitionToRoute('items.index');
-      controller.send('toggleItemView', 'keep');
-    },
-    viewDiscardItems() {
-      const controller = this.controllerFor('items.index');
-      this.transitionToRoute('items.index');
-      controller.send('toggleItemView', 'discard');
+
+      if (status === "keep") {
+        this.transitionToRoute('items.index');
+        controller.send('toggleItemView', status);
+      } else if (status === "discard") {
+        this.transitionToRoute('items.index');
+        controller.send('toggleItemView', status);
+      } else {
+        this.transitionToRoute('items.index');
+        controller.send('toggleItemView', status);
+      }
     }
   }
 });
