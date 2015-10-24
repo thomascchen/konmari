@@ -1,4 +1,8 @@
-{{#if keepItems}}
+{{#if resultsItems}}
+  <div class="row text-center heading-items">
+    <h2>Refuse To Give Up {{itemsToKeep.length}} Item(s) And Unburden Yourself Of {{itemsToDiscard.length}} Item(s)</h2>
+  </div>
+{{else if keepItems}}
   <div class="row text-center heading-items">
     <h2>Refuse To Give Up {{filteredList.length}} Item(s)</h2>
   </div>
@@ -16,4 +20,9 @@
   </div>
 {{/if}}
 
-{{items-table model=filteredList}}
+{{#if resultsItems}}
+  {{items-table model=itemsToKeep}}
+  {{items-table model=itemsToDiscard}}
+{{else}}
+  {{items-table model=filteredList}}
+{{/if}}
