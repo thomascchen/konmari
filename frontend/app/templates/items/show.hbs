@@ -6,8 +6,8 @@
   <div class="row text-center">
     <div class="col-sm-8 col-sm-offset-2">
       {{#link-to "items.edit" model.id class="btn btn-default btn-lg button-show"}}Edit Item{{/link-to}}
-      <button class="btn btn-danger btn-lg button-show pull-left" {{action "classifyItem" true model}}>Keep</button>
-      <button class="btn btn-success btn-lg button-show pull-right" {{action "classifyItem" false model}}>Discard</button>
+      <button class="btn btn-danger btn-lg button-show pull-left" {{action "classifyItem" model true}}>Keep</button>
+      <button class="btn btn-success btn-lg button-show pull-right" {{action "classifyItem" model false}}>Discard</button>
     </div>
   </div>
 </div>

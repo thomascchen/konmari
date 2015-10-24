@@ -29,6 +29,18 @@ export default Controller.extend({
   status: "all",
   keepItems: equal('status', 'keep'),
   discardItems: equal('status', 'discard'),
+  resultsItems: equal('status', 'results'),
+
+  itemsToKeep: computed('model', function() {
+    const model = get(this, 'model');
+    return model.filterBy("keep", true);
+  }),
+
+  itemsToDiscard: computed('model', function() {
+    const model = get(this, 'model');
+    return model.filterBy("keep", false);
+  }),
+
   actions: {
     toggleItemView(status) {
       set(this, "status", status);
