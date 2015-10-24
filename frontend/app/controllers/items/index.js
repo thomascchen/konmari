@@ -1,10 +1,22 @@
 import Ember from 'ember';
 
-export default Ember.Controller.extend({
-  first: Ember.computed.alias('model.lastObject'),
-  filteredList: Ember.computed('model', 'status', function() {
-    const model = this.get('model');
-    const status = this.get('status');
+const {
+  computed,
+  Controller,
+  get,
+  set
+} = Ember;
+
+const {
+  alias,
+  equal
+} = computed;
+
+export default Controller.extend({
+  first: alias('model.lastObject'),
+  filteredList: computed('model', 'status', function() {
+    const model = get(this, 'model');
+    const status = get(this, 'status');
 
     if (status === "keep") {
       return model.filterBy("keep", true);
@@ -15,11 +27,11 @@ export default Ember.Controller.extend({
     }
   }),
   status: "all",
-  keepItems: Ember.computed.equal('status', 'keep'),
-  discardItems: Ember.computed.equal('status', 'discard'),
+  keepItems: equal('status', 'keep'),
+  discardItems: equal('status', 'discard'),
   actions: {
     toggleItemView(status) {
-      this.set("status", status);
+      set(this, "status", status);
     }
   }
 });
