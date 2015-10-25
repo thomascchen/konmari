@@ -1,6 +1,11 @@
 {{#if resultsItems}}
-  <div class="row text-center heading-items">
-    <h2>Refuse To Give Up {{itemsToKeep.length}} Item(s) And Unburden Yourself Of {{itemsToDiscard.length}} Item(s)</h2>
+  <div class="col-sm-10 col-sm-offset-2">
+    <div class="col-sm-5">
+      <h2>Refuse To Give Up {{itemsToKeep.length}} Item(s)</h2>
+    </div>
+    <div class="col-sm-5">
+      <h2>Unburden Yourself Of {{itemsToDiscard.length}} Item(s)</h2>
+    </div>
   </div>
 {{else if keepItems}}
   <div class="row text-center heading-items">
@@ -21,8 +26,20 @@
 {{/if}}
 
 {{#if resultsItems}}
-  {{items-table model=itemsToKeep}}
-  {{items-table model=itemsToDiscard}}
+  <div class="col-sm-10 col-sm-offset-2">
+    <div class="row">
+      <div class="col-sm-5">
+        {{items-table model=itemsToKeep}}
+      </div>
+      <div class="col-sm-5">
+        {{items-table model=itemsToDiscard}}
+      </div>
+    </div>
+  </div>
 {{else}}
-  {{items-table model=filteredList}}
+  <div class="row">
+    <div class="col-sm-6 col-sm-offset-3">
+      {{items-table model=filteredList}}
+    </div>
+  </div>
 {{/if}}
