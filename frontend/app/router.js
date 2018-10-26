@@ -3,10 +3,17 @@ import config from './config/environment';
 
 const Router = EmberRouter.extend({
   location: config.locationType,
-  rootURL: config.rootURL
+  rootURL: config.rootURL,
 });
 
 Router.map(function() {
+  this.route('items', function() {
+    this.route('new');
+    this.route('show', { path: ':item_id' });
+    this.route('edit', { path: ':item_id/edit' });
+    this.route('keep');
+    this.route('discard');
+  });
 });
 
 export default Router;

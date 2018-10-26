@@ -1,0 +1,16 @@
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>
+        Item Name
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each model as |item|}}
+      <tr>
+        <td class="item-name">{{link-to item.name "items.show" item}}</td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>
