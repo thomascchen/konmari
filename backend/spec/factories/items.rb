@@ -1,7 +1,6 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :item do
     name "MyString"
-keep false
+    keep false
   end
-
 end

@@ -1,0 +1,10 @@
+version: '3.7'
+services:
+  postgres:
+    image: postgres:11.0
+    ports:
+      - '5432:5432'
+    volumes:
+      - postgres_11_data:/var/lib/postgresql/data
+volumes:
+  postgres_11_data:

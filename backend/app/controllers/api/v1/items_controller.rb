@@ -15,9 +15,9 @@ class Api::V1::ItemsController < ApplicationController
     @item = Item.new(item_params)
 
     if @item.save
-        render json: @item,
-          status: :created,
-          location: [:api, :v1, @item]
+      render json: @item,
+        status: :created,
+        location: [:api, :v1, @item]
     else
 
       render json: { errors: @item.errors }, status: :unprocessable_entity
@@ -28,9 +28,9 @@ class Api::V1::ItemsController < ApplicationController
     @item = Item.find(params[:id])
 
     if @item.update(item_params)
-        render json: @item,
-          status: :ok,
-          location: [:api, :v1, @item]
+      render json: @item,
+        status: :ok,
+        location: [:api, :v1, @item]
     else
 
       render json: { errors: @item.errors }, status: :unprocessable_entity
@@ -40,6 +40,6 @@ class Api::V1::ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:name, :keep)
+    ActiveModelSerializers::Deserialization.jsonapi_parse!(params, only: [:name, :keep] )
   end
 end
